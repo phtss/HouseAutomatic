@@ -1,5 +1,6 @@
 package com.example.houseautomatic;
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -32,11 +33,12 @@ public class GetResponseHTTP extends AsyncTask<JSONObject, Void, Void> {
     @Override
     protected void onPreExecute() {
     }
-
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
     @Override
     protected Void doInBackground(JSONObject... jsonParam) {
         try {
-            URL url = new URL("http://192.168.0.164/body");
+
+            URL url = new URL("http://"+MainActivity.ipserwera+"/body");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");

@@ -1,5 +1,6 @@
 package com.example.houseautomatic;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +23,11 @@ public class DevicesControllActivity extends AppCompatActivity implements TaskCo
         jsonParam.put("Command", "DeviceOnOff");
         new SendJSONHTTP(this).execute(jsonParam);
 
+    }
+
+    public void BackClick(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override

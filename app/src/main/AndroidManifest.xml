@@ -3,6 +3,8 @@
     package="com.example.houseautomatic">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,11 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GetResponseHTTP"></activity>
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".GetResponseHTTP" />
         <activity android:name=".DevicesControllActivity" />
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings" />
         <activity android:name=".ServerActivity" />
         <activity android:name=".LightsActivity" />
         <activity android:name=".MainActivity">

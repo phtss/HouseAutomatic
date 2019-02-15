@@ -39,8 +39,7 @@ public class LightsActivity extends AppCompatActivity implements TaskCompleted {
     public void onTaskComplete(String result) {
         JSONObject obj;
         try {
-            obj = new JSONObject(result);
-            Toast.makeText(this, obj.get("red").toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "wysłano", Toast.LENGTH_LONG).show();
         } catch (Throwable t) {
             Log.d("My App", "Could not parse malformed JSON: \"" + result + "\"");
         }
@@ -71,16 +70,13 @@ public class LightsActivity extends AppCompatActivity implements TaskCompleted {
 
     }
 
-    public void SetColorClick(View view){
+    public void SetColorClick(View view) throws JSONException {
         JSONObject jsonParam = new JSONObject();
-        try {
-            jsonParam.put("red", Red);
-            jsonParam.put("green", Green);
-            jsonParam.put("blue", Blue);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
+        jsonParam.put("Command", "SetLight");
+        jsonParam.put("red", Red);
+        jsonParam.put("green", Green);
+        jsonParam.put("blue", Blue);
+        
         new SendJSONHTTP(this).execute(jsonParam);
     }
 
